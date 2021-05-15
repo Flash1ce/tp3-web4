@@ -84,4 +84,5 @@ app.all('*', function (req, res) {
 
 // Démarage du serveur
 app.listen(PORT, function () {
+    console.log("écoute sur le port : %s", PORT);
 });
