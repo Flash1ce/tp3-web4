@@ -2,10 +2,12 @@
   "name": "tp3_web_antoine_bedard",
   "version": "1.0.0",
   "description": "TP3 web API rest avec Node.js",
-  "main": "app.js",
+  "engines": {
+    "node": "v15.10.0"
+  },
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "author": "Antoine Bédard",
   "license": "ISC",
@@ -16,6 +18,9 @@
     "express-hateoas-links": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.5",
-    "swagger-ui-express": "^4.1.6"
+    "swagger-ui-express": "^4.1.6",
+    "body-parser": "^1.17.2",
+    "mongodb": "^3.6.5",
+    "merge": "^2.1.1"
   }
 }
