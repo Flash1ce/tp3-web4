@@ -5,14 +5,14 @@ var express = require('express');
 var routerUsagers = express.Router();
 
 // URL de base
-var url_base = "http://localhost:8090/";
+var url_base = "https://tp3-bedardantoine.herokuapp.com/";
 // ORM Mongoose
 var mongoose = require('mongoose');
 
 var jwt = require('jsonwebtoken');
 
 // Connection a la bd mongoDB
-mongoose.connect('mongodb://localhost:27017/tp3WebAB', {
+mongoose.connect('mongodb+srv://antoine:bedard@cluster0.haeor.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/tp3WebAB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     poolSize: 10
