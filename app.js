@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var PORT = process.env.port;
+var PORT = process.env.PORT;
 var app = express();
 var hateoasLinker = require('express-hateoas-links');
 
@@ -72,9 +72,9 @@ app.use(hateoasLinker);
 
 // Indique a l'app d'utiliser le router.
 app.use('/', routerUsagers);
-// app.use('/', routerLivreur);
-// app.use('/', routerPlats);
-// app.use('/', routerCommande);
+app.use('/', routerLivreur);
+app.use('/', routerPlats);
+app.use('/', routerCommande);
 
 // Gestion de l'erreur 404.
 app.all('*', function (req, res) {
@@ -84,5 +84,4 @@ app.all('*', function (req, res) {
 
 // Démarage du serveur
 app.listen(PORT, function () {
-    console.log('Serveur sur le port ' + PORT);
 });
