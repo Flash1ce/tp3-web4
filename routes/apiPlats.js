@@ -10,7 +10,7 @@ var url_base = "https://tp3-bedardantoine.herokuapp.com";
 var mongoose = require('mongoose');
 
 // Connection a la bd mongoDB
-mongoose.connect('mongodb+srv://antoine:bedard@cluster0.haeor.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/tp3WebAB', {
+mongoose.connect('mongodb+srv://antoine:bedard@cluster0.m8uqr.mongodb.net/tp3WebAB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     poolSize: 10
