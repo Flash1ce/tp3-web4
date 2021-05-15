@@ -1,0 +1,21 @@
+{
+  "name": "tp3_web_antoine_bedard",
+  "version": "1.0.0",
+  "description": "TP3 web API rest avec Node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Antoine Bédard",
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.8.15",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-hateoas-links": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.5",
+    "swagger-ui-express": "^4.1.6"
+  }
+}

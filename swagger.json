@@ -1,0 +1,596 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Tp3 api docs",
+      "description": "Documentation api tp3 web.",
+      "version": "0.1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8090"
+      }
+    ],
+    "paths": {
+      "/usagers/6089735911d487119080c7c1/commandes/609bf5cce1716c3a20475abd/plats": {
+        "get": {
+          "description": "Permet d'avoir la liste des plats d'une commande a un utilisateur.",
+          "responses": {
+            "200": {
+              "description": "Les plats on bien été retourner, code 200.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/usagers/6089735911d487119080c7c1/commandes": {
+        "post": {
+          "description": "Permet d'obtenir les commandes d'un utilisateur grâce a sont id.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\r\n    \"DateArrivee\": \"2021/01/01\"\r\n}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/plats": {
+        "get": {
+          "description": "Permet de récupérer la liste des plats, peut-être appeller seulement avec c'est site web : https://www.delirescalade.com, https://www.chess.com, https://cegepgarneau.omnivox.ca",
+          "responses": {
+            "500": {
+              "description": "Auto generated using Swagger Inspector",
+              "content": {
+                "text/html; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "post": {
+            "description": "Permet de créé un plats. Le body doit avoir le nom et le nombre de portions du plats.",
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/body"
+                  },
+                  "examples": {
+                    "0": {
+                      "value": "{\r\n    \"Nom\": \"Steack\",\r\n    \"NbrPortions\": 1\r\n}"
+                    }
+                  }
+                }
+              }
+            },
+            "responses": {
+              "201": {
+                "description": "Le plat a bien été créé.",
+                "content": {
+                  "application/json; charset=utf-8": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "examples": {}
+                  }
+                }
+              }
+            },
+            "servers": [
+              {
+                "url": "http://localhost:8090"
+              }
+            ]
+          },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/livreurs": {
+        "post": {
+          "description": " Permet de créé un livreur. Le body doit contenir le Nom, le Prenom, la voiture et le Quartier.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_1"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\r\n    \"Nom\": \"Turcot\",\r\n    \"Prenom\": \"Boby\",\r\n    \"Voiture\": \"Vélo Turbo X\",\r\n    \"Quartier\": \"Neuf-Chatel\"\r\n}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Le livreur a bien été créé, code 201",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/plats/609beed8e1716c3a20475ab1": {
+        "get": {
+          "description": "Permet d'obtenir un plat avec sont id.",
+          "responses": {
+            "200": {
+              "description": "Le plat a bien été retourner.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "delete": {
+          "description": "Permet de supprimer un plats avec sont id.",
+          "responses": {
+            "204": {
+              "description": "Le plat a bien été supprimer."
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/usagers/6089735911d487119080c7c1/commandes/609c490346c41c5ac44d7c22": {
+        "get": {
+          "description": "Permet d'obtenir la commande d'un utilisateur, grâce a leur id.",
+          "responses": {
+            "200": {
+              "description": "La commande de l'utilisateur a bien été retourner.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "delete": {
+          "description": "Permet de supprimer la commande de l'utilisateur.",
+          "responses": {
+            "204": {
+              "description": "La commande a bien été supprimer."
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/usagers/6089735911d487119080c7c1/commandes/609bf5cce1716c3a20475abd/plats/609c44fe46c41c5ac44d7be3": {
+        "put": {
+          "description": "Permet d'ajouter un plat dans la commande a l'utilisateur, grâce a leur id.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_2"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\r\n    \"_id\":\"609c44fe46c41c5ac44d7be3\",\r\n    \"Nom\":\"Pogo\",\r\n    \"NbrPortions\":12,\r\n    \"__v\":0\r\n}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "La commande a bien été modifier.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "delete": {
+          "description": "Permet de supprimer les plats de la commande grâce a leur id.",
+          "responses": {
+            "204": {
+              "description": "le plat a bien été supprimer."
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/connexions": {
+        "post": {
+          "description": "Permet de ce connecter et d'obtenir un token valide. Le body contiens les informations de l'usager.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_3"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\r\n    \"Nom\": \"Levesque\",\r\n    \"Prenom\": \"Anthony\",\r\n    \"Adresse\": \"1325 Rue Alegro\",\r\n    \"Pseudo\": \"Water\",\r\n    \"MotDePasse\": \"1234\"\r\n}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Le token a bien été, et la connexion est valide.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/usagers/6089735911d487119080c7c1/commandes/609c51db46c41c5ac44d7c37": {
+        "put": {
+          "description": "Permet de modifier une commande grâce a sont id.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_4"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\r\n    \"DateArrivee\": \"1998/10/1\"\r\n}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "default": {
+              "description": "Auto generated using Swagger Inspector"
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/livreurs/609c41164595e350d84732b8": {
+        "get": {
+          "description": "Permet d'obtenir un livreur grâce a sont id.",
+          "responses": {
+            "200": {
+              "description": "Le livreur a bien été retourner.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "delete": {
+          "description": "Permet de supprimer le livreur grâce a sont id.",
+          "responses": {
+            "204": {
+              "description": "Le livreur a bien été supprimer."
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      },
+      "/usagers/6089735911d487119080c7c1/commandes/609bf5cce1716c3a20475abd/livreur": {
+        "put": {
+          "description": "Permet de modifier le livreur de la commande.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/body_5"
+                },
+                "examples": {
+                  "0": {
+                    "value": "{\r\n    \"_id\": \"6091a607a4b2c46324cb934b\",\r\n    \"Nom\": \"Bédard\",\r\n    \"Prenom\": \"Antoine\",\r\n    \"Voiture\": \"Yaris 2006 SPORT\",\r\n    \"Quartier\": \"Val-Bélair\",\r\n    \"__v\": 0\r\n}"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Le livreur a bien été ajouté a la commande.",
+              "content": {
+                "application/json; charset=utf-8": {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "examples": {}
+                }
+              }
+            }
+          },
+          "servers": [
+            {
+              "url": "http://localhost:8090"
+            }
+          ]
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8090"
+          }
+        ]
+      }
+    },
+    "components": {
+      "schemas": {
+        "body_3": {
+          "type": "object",
+          "properties": {
+            "Prenom": {
+              "type": "string"
+            },
+            "Adresse": {
+              "type": "string"
+            },
+            "MotDePasse": {
+              "type": "string"
+            },
+            "Pseudo": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            }
+          }
+        },
+        "body_4": {
+          "type": "object",
+          "properties": {
+            "DateArrivee": {
+              "type": "string"
+            }
+          }
+        },
+        "body_1": {
+          "type": "object",
+          "properties": {
+            "Prenom": {
+              "type": "string"
+            },
+            "Voiture": {
+              "type": "string"
+            },
+            "Quartier": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            }
+          }
+        },
+        "body_2": {
+          "type": "object",
+          "properties": {
+            "__v": {
+              "type": "integer"
+            },
+            "NbrPortions": {
+              "type": "integer"
+            },
+            "_id": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            }
+          }
+        },
+        "body": {
+          "type": "object",
+          "properties": {
+            "DateArrivee": {
+              "type": "string"
+            }
+          }
+        },
+        "body_5": {
+          "type": "object",
+          "properties": {
+            "Prenom": {
+              "type": "string"
+            },
+            "__v": {
+              "type": "integer"
+            },
+            "_id": {
+              "type": "string"
+            },
+            "Voiture": {
+              "type": "string"
+            },
+            "Quartier": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+        "oauth2": {
+          "type": "oauth2",
+          "flows": {
+            "implicit": {
+              "authorizationUrl": "http://yourauthurl.com",
+              "scopes": {
+                "scope_name": "Enter your scopes here"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
