@@ -54,7 +54,7 @@ routerUsagers.route('/usagers')
             nouveauUsager.save(function (err) {
                 if (err) throw err;
     
-                res.status(201).location(url_base + 'usagers/' + nouveauUsager._id).json(nouveauUsager);
+                res.status(201).location(url_base + '/usagers/' + nouveauUsager._id).json(nouveauUsager);
             });
         }
         else{

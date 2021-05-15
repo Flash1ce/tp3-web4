@@ -85,7 +85,7 @@ routerCommande.route('/usagers/:usager_id/commandes')
                     nouvelleCommande.save(function (err) {
                         if (err) throw err;
     
-                        res.status(201).location(url_base + 'usagers/' + usagerID + '/commandes/' + nouvelleCommande._id).json(nouvelleCommande);
+                        res.status(201).location(url_base + '/usagers/' + usagerID + '/commandes/' + nouvelleCommande._id).json(nouvelleCommande);
                     });
                 });
             } else {
@@ -152,7 +152,7 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
                             }, function (err, commande) {
                                 if (err) throw err;
                                 res.status(200).location(
-                                    url_base + 'usagers/' + usagerID + '/commandes/' + commandeID).json(commande);
+                                    url_base + '/usagers/' + usagerID + '/commandes/' + commandeID).json(commande);
                             });
                         } else {
                             UsagerModele.findById(usagerID, function (err, usager) {
@@ -166,7 +166,7 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
                                 nouvelleCommande.save(function (err) {
                                     if (err) throw err;
                                     res.status(201).location(
-                                        url_base + 'usagers/' + usagerID + '/commandes/' + nouvelleCommande._id).json(nouvelleCommande);
+                                        url_base + '/usagers/' + usagerID + '/commandes/' + nouvelleCommande._id).json(nouvelleCommande);
                                 });
                             });
                         }

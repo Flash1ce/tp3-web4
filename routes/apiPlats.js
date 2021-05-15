@@ -81,7 +81,7 @@ routerPlats.route('/plats')
             nouveauPlat.save(function (err) {
                 if (err) throw err;
     
-                res.status(201).location(url_base + 'plats/' + nouveauPlat._id).json(nouveauPlat, [{
+                res.status(201).location(url_base + '/plats/' + nouveauPlat._id).json(nouveauPlat, [{
                         rel: "self",
                         method: "GET",
                         href: url_base + "/plats/" + nouveauPlat._id.toString()

@@ -31,7 +31,7 @@ routerLivreur.route('/livreurs')
             nouveauLivreur.save(function (err) {
                 if (err) throw err;
     
-                res.status(201).location(url_base + 'livreurs/' + nouveauLivreur._id).json(nouveauLivreur);
+                res.status(201).location(url_base + '/livreurs/' + nouveauLivreur._id).json(nouveauLivreur);
             });
         } else {
             res.status(400).end();
