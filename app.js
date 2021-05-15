@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-const PORT = process.env.port;
+const PORT = process.env.port || 8090;
 var app = express();
 var hateoasLinker = require('express-hateoas-links');
 
