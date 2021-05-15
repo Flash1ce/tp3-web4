@@ -84,5 +84,5 @@ app.all('*', function (req, res) {
 
 // Démarage du serveur
 app.listen(PORT, function () {
-    console.log('Serveur sur le port ' + this.address().port);
+    console.log('Serveur sur le port ' + PORT);
 });

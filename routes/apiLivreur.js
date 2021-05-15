@@ -5,7 +5,7 @@ var express = require('express');
 var routerLivreur = express.Router();
 
 // URL de base
-var url_base = "https://tp3-bedardantoine.herokuapp.com/";
+var url_base = "https://tp3-bedardantoine.herokuapp.com";
 // ORM Mongoose
 var mongoose = require('mongoose');
 
