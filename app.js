@@ -50,7 +50,6 @@ app.route('/connexions')
         };
         // Recherche de l'usager qui a le bon mdp et pseudo.
         UsagerModele.findOne(filter, function (err, usager) {
-            if (err) throw err;
             if (usager) {
                 // met l'id de l'usager connecter dans le payload.
                 var payload = {

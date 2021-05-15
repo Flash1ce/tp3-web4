@@ -73,7 +73,6 @@ routerCommande.route('/usagers/:usager_id/commandes')
                 console.log("Création de la commande sans livreur et sans plat.");
 
                 UsagerModele.findById(usagerID, function (err, usager) {
-                    if (err) throw err;
     
                     // Création de la commande
                     var nouvelleCommande = new CommandeModele({
@@ -83,7 +82,6 @@ routerCommande.route('/usagers/:usager_id/commandes')
     
                     // Sauvegarde de la nouvelle commande.
                     nouvelleCommande.save(function (err) {
-                        if (err) throw err;
     
                         res.status(201).location(url_base + '/usagers/' + usagerID + '/commandes/' + nouvelleCommande._id).json(nouvelleCommande);
                     });
@@ -115,7 +113,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
             if (commandeID.length === 24) {
                 // Recherche la commande qui a l'id fournis en params.
                 CommandeModele.findById(commandeID, function (err, commande) {
-                    if (err) throw err;
                     if (commande) res.status(200).json(commande); // return 200 et le json de la commande trouver.
                     else res.status(404).end(); // return 404 si la commande n'est pas trouvé.
                 });
@@ -137,7 +134,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
             if (commandeID.length === 24) {
                 // Recherche la commande qui a l'id fournis en params.
                 CommandeModele.findById(commandeID, function (err, commande) {
-                    if (err) throw err;
 
                     // Vérifie si il y a seulement la date a modifier.
                     if (Object.keys(req.body).length === 1 && req.body.DateArrivee !== undefined) {
@@ -150,13 +146,11 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
                                 new: true,
                                 runValidators: true
                             }, function (err, commande) {
-                                if (err) throw err;
                                 res.status(200).location(
                                     url_base + '/usagers/' + usagerID + '/commandes/' + commandeID).json(commande);
                             });
                         } else {
                             UsagerModele.findById(usagerID, function (err, usager) {
-                                if (err) throw err;
 
                                 // Création de la commande
                                 var nouvelleCommande = new CommandeModele({
@@ -164,7 +158,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
                                     'Usager': usager
                                 });
                                 nouvelleCommande.save(function (err) {
-                                    if (err) throw err;
                                     res.status(201).location(
                                         url_base + '/usagers/' + usagerID + '/commandes/' + nouvelleCommande._id).json(nouvelleCommande);
                                 });
@@ -193,7 +186,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id')
             if (commandeID.length === 24) {
                 // Suppresion de la commande avec sont id.
                 CommandeModele.findByIdAndDelete(commandeID, function (err) {
-                    if (err) throw err;
 
                     res.status(204).end();
                 });
@@ -224,13 +216,11 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/livreur')
 
                     // Trouve la commande avec sont id.
                     CommandeModele.findById(commandeID, function (err, commande) {
-                        if (err) throw err;
 
                         // Validation si la commande existe.
                         if (commande) {
                             // récupère le livreur avec sont id.
                             LivreurModele.findById(req.body._id, function (err, livreur) {
-                                if (err) throw err;
 
                                 // Vérification si le livreur ayant l'id existe dans la bd.
                                 if (livreur) {
@@ -246,7 +236,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/livreur')
                                                 new: true,
                                                 runValidators: true
                                             }, function (err, commande) {
-                                                if (err) throw err;
 
                                                 res.status(201).json(commande);
                                             });
@@ -260,7 +249,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/livreur')
                                                 new: true,
                                                 runValidators: true
                                             }, function (err, commande) {
-                                                if (err) throw err;
 
                                                 res.status(200).json(commande);
                                             });
@@ -277,7 +265,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/livreur')
                                         var nouveauLivreur = new  LivreurModele(req.body);
         
                                         nouveauLivreur.save(function (err) {
-                                            if (err) throw err;
         
                                             // Ajout du Livreur a la commande.
                                             CommandeModele.findByIdAndUpdate(commandeID, {
@@ -286,7 +273,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/livreur')
                                                 new: true,
                                                 runValidators: true
                                             }, function (err, commande) {
-                                                if (err) throw err;
         
                                                 res.status(201).json(commande);
                                             });
@@ -329,7 +315,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/plats')
             if (commandeID.length === 24) {
                 // Obtenir la list des plats d'une commande.
                 CommandeModele.findById(commandeID, function (err, commande) {
-                    if (err) throw err;
 
                     if (commande) {
                         res.status(200).json(commande.Plats);
@@ -363,7 +348,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/plats/:plat_id'
             if (commandeID.length === 24 && platID.length === 24) {
                 // Récupère le plat avec sont id.
                 PlatsModele.findById(platID, function (err, plat) {
-                    if (err) throw err;
 
                     // Vérification si le plats ayant l'id existe dans la bd.
                     if (plat) {
@@ -380,7 +364,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/plats/:plat_id'
                                 new: true,
                                 runValidators: true
                             }, function (err, commande) {
-                                if (err) throw err;
 
                                 res.status(200).json(commande);
                             });
@@ -396,7 +379,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/plats/:plat_id'
                             var nouveauPlat = new PlatsModele(req.body);
 
                             nouveauPlat.save(function (err) {
-                                if (err) throw err;
     
                                 // Ajout du plat a la commande.
                                 CommandeModele.findByIdAndUpdate(commandeID, {
@@ -409,7 +391,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/plats/:plat_id'
                                     new: true,
                                     runValidators: true
                                 }, function (err, commande) {
-                                    if (err) throw err;
     
                                     res.status(201).json(commande);
                                 });
@@ -446,7 +427,6 @@ routerCommande.route('/usagers/:usager_id/commandes/:commande_id/plats/:plat_id'
                     new: true,
                     runValidators: true
                 }, function (err, commande) {
-                    if (err) throw err;
 
                     res.status(204).json(commande);
                 });

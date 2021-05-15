@@ -29,7 +29,6 @@ routerLivreur.route('/livreurs')
             var nouveauLivreur = new LivreurModele(req.body);
     
             nouveauLivreur.save(function (err) {
-                if (err) throw err;
     
                 res.status(201).location(url_base + '/livreurs/' + nouveauLivreur._id).json(nouveauLivreur);
             });
@@ -55,7 +54,6 @@ routerLivreur.route('/livreurs/:livreur_id')
         if (livreurID.length === 24) {
             // Recherche du livreur qui a l'id fournis en params.
             LivreurModele.findById(livreurID, function (err, livreur) {
-                // if (err) throw err; // lancement des erreurs.
                 if (livreur) res.status(200).json(livreur); // return 200 et le json du livreur trouver.
                 else res.status(404).end(); // return 404 si le livreur n'est pas trouvé.
             });
@@ -73,7 +71,6 @@ routerLivreur.route('/livreurs/:livreur_id')
         if (livreurID.length === 24) {
             // Supprime le livreur ayant l'id livreurID.
             LivreurModele.findByIdAndDelete(livreurID, function (err) {
-                if (err) throw err; // lancement des erreurs.
 
                 res.status(204).end();
             });

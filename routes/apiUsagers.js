@@ -52,7 +52,6 @@ routerUsagers.route('/usagers')
             var nouveauUsager = new UsagerModele(req.body);
 
             nouveauUsager.save(function (err) {
-                if (err) throw err;
     
                 res.status(201).location(url_base + '/usagers/' + nouveauUsager._id).json(nouveauUsager);
             });
@@ -94,7 +93,6 @@ routerUsagers.route('/usagers/:usager_id')
                 // Recherche l'usager qui a l'id fournis en params.
                 UsagerModele.findById(usagerID, function (err, usager) {
                     console.log(usagerID);
-                    if (err) throw err;
                     if (usager) res.status(200).json(usager); // return 200 et le json de l'usager trouver.
                     else res.status(404).end(); // return 404 si l'usager n'est pas trouvé.
                 });

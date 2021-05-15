@@ -37,7 +37,6 @@ routerPlats.get('/plats', cors(corsOptions), function (req, res) {
     console.log("Obtenir tout les plats.");
 
     PlatsModele.find({}, function (err, plats) {
-        if (err) throw err;
 
         // ajouts des links dans la reponse.
         var platsJson = [];
@@ -79,7 +78,6 @@ routerPlats.route('/plats')
             var nouveauPlat = new PlatsModele(req.body);
     
             nouveauPlat.save(function (err) {
-                if (err) throw err;
     
                 res.status(201).location(url_base + '/plats/' + nouveauPlat._id).json(nouveauPlat, [{
                         rel: "self",
@@ -124,7 +122,6 @@ routerPlats.route('/plats/:plat_id')
         if (platID.length === 24) {
             // Recherche du plat qui a l'id fournis en params.
             PlatsModele.findById(platID, function (err, plat) {
-                if (err) throw err; // lancement des erreurs.
                 if (plat) res.status(200).json(plat, [{
                     rel: "self",
                     method: "GET",
@@ -158,7 +155,6 @@ routerPlats.route('/plats/:plat_id')
         if (platID.length === 24) {
             // Supprime le plat ayant l'id platID.
             PlatsModele.findByIdAndDelete(platID, function (err) {
-                if (err) throw err; // lancement des erreurs.
 
                 res.status(204).end();
             });
